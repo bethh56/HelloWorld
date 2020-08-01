@@ -26,8 +26,17 @@ namespace HelloWorld
 
             var animals = new string[] { "Triceratops", "Gorilla", "Corgi", "Toucan" };
 
+            string name;
 
-            Console.WriteLine("Select a greeting:");
+            do
+            {
+                Console.WriteLine("Please enter your name");
+                name = Console.ReadLine();
+                Console.WriteLine($"Select a greeting {name}:");
+
+            } while (name != $"{name}");
+
+            
             Console.WriteLine("Southern");
             Console.WriteLine("Spanish");
             Console.WriteLine("German");
@@ -36,23 +45,45 @@ namespace HelloWorld
 
             if (input == "Southern")
             {
-                Console.WriteLine("Howdy Y'all!!");
+                Console.WriteLine($"Howdy {name}!!");
             }
             else if (input == "Spanish")
             {
-                Console.WriteLine("Hola!");
+                Console.WriteLine($"Hola {name}!");
             }
             else if (input == "German")
             {
-                Console.WriteLine("Hallo!");
+                Console.WriteLine($"Hallo {name}!");
             }
             else
             {
-                Console.WriteLine("Howdy Y'all!!");
+                Console.WriteLine($"Howdy {name}!!");
             }
 
+            string color;
 
-            Console.WriteLine("Here are some words with 3 or more syllables:");
+            Random rand = new Random();
+            int index = rand.Next(animals.Length);
+
+            do
+            {
+                Console.WriteLine($"{name}, what is your favorite color?");
+                color = Console.ReadLine();
+                Console.WriteLine($"{name}, would you like to have a {color} {animals[index]}?");
+
+            } while (color != $"{color}");
+
+            Console.WriteLine("Please enter yes or no:");
+
+            var wantsAnimal = Console.ReadLine();
+
+            if (wantsAnimal == "yes")
+            {
+                Console.WriteLine($"Too bad {name}! We are all out! Look at some words with 3 or more syllables instead! ");
+            } else
+            {
+                Console.WriteLine($"{name}, check out some words with 3 or more syllables instead!");
+            }
 
             foreach (var animal in animals)
             {
